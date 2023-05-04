@@ -30,6 +30,8 @@ type Factory struct {
 // 简单工厂的问题，该方法仍然是耦合的
 // 且违背开闭原则，增加新的水果类需要修改当前代码，而无法通过新增代码解决问题
 func (f *Factory) CreateFruit(kind string) Fruit {
+	// 父类指针指向子类对象，为了实现多态
+	// 这里可以直接返回，会进行隐式类型转换，这里是为了体现多态的实现方式
 	var fruit Fruit
 
 	if kind == "apple" {
